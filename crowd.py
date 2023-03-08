@@ -84,3 +84,10 @@ class Crowd:
         req_data = { 'ids': user_ids }
         return self._session.delete(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data).json()
 
+    
+    def add_users_to_group(self, group_id: str, user_ids: list[str]) -> dict[str, list[str]]:
+        if len(user_ids) == 0:
+            return { 'successes': [], 'failures': [] }
+        
+        req_data = { 'ids': user_ids }
+        return self._session.post(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data).json()
