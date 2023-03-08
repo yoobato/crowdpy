@@ -48,7 +48,7 @@ class Crowd:
         }
 
         while (True):
-            # Fetch all Active users in specific directory
+            # Fetch all Active users in specific directory by 100
             response = self._session.post(f'{self._admin_api_base_url}/users/search?limit=100&start={start_index}', json=req_data).json()
             results.extend(list(response['values']))
 
@@ -65,7 +65,7 @@ class Crowd:
         start_index = 0
 
         while (True):
-            # Fetch all Active users in specific directory
+            # Fetch all users in specific group by 100
             response = self._session.get(f'{self._admin_api_base_url}/groups/{group_id}/users?limit=100&start={start_index}').json()
             results.extend(list(response['values']))
 
