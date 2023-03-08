@@ -10,6 +10,7 @@ A Python library for Atlassian Crowd REST API
 
 ## To Do
 - [ ] Add timeout parameter when using `requests`
+- [ ] CI/CD using Github Actions
 
 ## Installation
 ```sh
