@@ -1,5 +1,4 @@
 import base64
-import json
 import requests
 
 REQUEST_TIMEOUT_IN_SECS = 5
