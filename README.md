@@ -8,9 +8,6 @@ A Python library for Atlassian Crowd REST API
 ## Requirements
 - Python >= 3.9
 
-## To Do
-- [ ] CI/CD using Github Actions
-
 ## Installation
 ```sh
 pip install crowdpy
