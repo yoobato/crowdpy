@@ -2,6 +2,8 @@ import base64
 import json
 import requests
 
+REQUEST_TIMEOUT_IN_SECS = 5
+
 
 class Crowd:
 
@@ -25,7 +27,7 @@ class Crowd:
 
         while (True):
             # Fetch all Crowd directories by 100.
-            response = self._session.get(f'{self._admin_api_base_url}/directory/managed?limit=100&start={start_index}').json()
+            response = self._session.get(f'{self._admin_api_base_url}/directory/managed?limit=100&start={start_index}', timeout=REQUEST_TIMEOUT_IN_SECS).json()
             results.extend(list(response['values']))
 
             if response['isLastPage'] == True:
@@ -49,7 +51,7 @@ class Crowd:
 
         while (True):
             # Fetch all Active users in specific directory by 100
-            response = self._session.post(f'{self._admin_api_base_url}/users/search?limit=100&start={start_index}', json=req_data).json()
+            response = self._session.post(f'{self._admin_api_base_url}/users/search?limit=100&start={start_index}', json=req_data, timeout=REQUEST_TIMEOUT_IN_SECS).json()
             results.extend(list(response['values']))
 
             if response['isLastPage'] == True:
@@ -66,7 +68,7 @@ class Crowd:
 
         while (True):
             # Fetch all users in specific group by 100
-            response = self._session.get(f'{self._admin_api_base_url}/groups/{group_id}/users?limit=100&start={start_index}').json()
+            response = self._session.get(f'{self._admin_api_base_url}/groups/{group_id}/users?limit=100&start={start_index}', timeout=REQUEST_TIMEOUT_IN_SECS).json()
             results.extend(list(response['values']))
 
             if response['isLastPage'] == True:
@@ -82,7 +84,7 @@ class Crowd:
             return { 'successes': [], 'failures': [] }
         
         req_data = { 'ids': user_ids }
-        return self._session.delete(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data).json()
+        return self._session.delete(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data, timeout=REQUEST_TIMEOUT_IN_SECS).json()
 
     
     def add_users_to_group(self, group_id: str, user_ids: list[str]) -> dict[str, list[str]]:
@@ -90,4 +92,4 @@ class Crowd:
             return { 'successes': [], 'failures': [] }
         
         req_data = { 'ids': user_ids }
-        return self._session.post(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data).json()
+        return self._session.post(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data, timeout=REQUEST_TIMEOUT_IN_SECS).json()
