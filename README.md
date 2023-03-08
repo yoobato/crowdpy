@@ -11,9 +11,22 @@ pip install crowdpy
 
 ## Usage
 ```python
-import crowd
+from crowd import Crowd
 
-# TBA
+# Initialize Crowd
+crowd = Crowd(base_url: 'https://example.com/crowd', account: (ADMIN_ID, ADMIN_PW))
+
+# Get Directories
+directories = crowd.get_managed_directories()
+print('Directories :', directories)
+
+# Generate Group ID
+group_id = crowd.generate_group_id(directory_id=directories[0]['id'], group_name='TestGroup')
+print('Group ID :', group_id)
+
+# Get Users by Group
+users = crowd.get_users_by_group(group_id=group_id)
+print(f'Users in Group [{group_id}] :', users)
 ```
 
 ## Authors
