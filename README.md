@@ -1,4 +1,5 @@
 # crowdpy
+![PyPI](https://img.shields.io/pypi/v/crowdpy)
 A Python library for Atlassian Crowd REST API
 
 ## Requirements
