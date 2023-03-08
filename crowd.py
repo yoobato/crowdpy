@@ -23,7 +23,7 @@ class Crowd:
         results = list()
         start_index = 0
 
-        while(True):
+        while (True):
             # Fetch all Crowd directories by 100.
             response = self._session.get(f'{self._admin_api_base_url}/directory/managed?limit=100&start={start_index}').json()
             results.extend(list(response['values']))
@@ -34,3 +34,28 @@ class Crowd:
                 start_index = int(response['start']) + int(response['size'])
         
         return results
+
+
+    def get_active_users_by_directory(self, directory_id: str) -> list[dict]:
+        results = list()
+        start_index = 0
+
+        req_data = {
+            'directoryIds': [
+                directory_id
+            ],
+            'active': True
+        }
+
+        while (True):
+            # Fetch all Active users in specific directory
+            response = self._session.post(f'{self._admin_api_base_url}/users/search?limit=100&start={start_index}', json=req_data).json()
+            results.extend(list(response['values']))
+
+            if response['isLastPage'] == True:
+                break
+            else:
+                start_index = int(response['start']) + int(response['size'])
+        
+        return results
+
