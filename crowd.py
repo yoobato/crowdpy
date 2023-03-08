@@ -1,4 +1,3 @@
-'''An REST API client module for Atlassian Crowd'''
 import base64
 import requests
 
