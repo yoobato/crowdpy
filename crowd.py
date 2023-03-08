@@ -66,7 +66,7 @@ class Crowd:
 
         while (True):
             # Fetch all Active users in specific directory
-            response = self._session.post(f'{self._admin_api_base_url}/groups/{group_id}/users?limit=100&start={start_index}').json()
+            response = self._session.get(f'{self._admin_api_base_url}/groups/{group_id}/users?limit=100&start={start_index}').json()
             results.extend(list(response['values']))
 
             if response['isLastPage'] == True:
