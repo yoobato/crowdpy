@@ -8,6 +8,9 @@ A Python library for Atlassian Crowd REST API
 ## Requirements
 - Python >= 3.9
 
+## To Do
+- [ ] Add timeout parameter when using `requests`
+
 ## Installation
 ```sh
 pip install crowdpy
