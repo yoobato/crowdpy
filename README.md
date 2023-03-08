@@ -1,5 +1,6 @@
 # crowdpy
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/yoobato/crowdpy/publish-to-pypi.yml)
 ![PyPI](https://img.shields.io/pypi/v/crowdpy)
 
 A Python library for Atlassian Crowd REST API
