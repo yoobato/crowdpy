@@ -33,6 +33,20 @@ users = crowd.get_users_by_group(group_id=group_id)
 print(f'Users in Group [{group_id}] :', users)
 ```
 
+## Build & Deploy (PyPi)
+```sh
+# Build
+pip install build
+python -m build
+# whl file & archived src(tar.gz) file will be generated.
+
+# Deploy
+pip install twine
+python -m twine upload dist/*
+# package will be uploaded to PyPi registry
+# https://pypi.org/project/crowdpy
+```
+
 ## Authors
 - [Daeyeol Ryu](https://yoobato.com)
 
