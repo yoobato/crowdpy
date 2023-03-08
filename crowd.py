@@ -76,3 +76,11 @@ class Crowd:
         
         return results
 
+    
+    def remove_users_from_group(self, group_id: str, user_ids: list[str]) -> dict[str, list[str]]:
+        if len(user_ids) == 0:
+            return { 'successes': [], 'failures': [] }
+        
+        req_data = { 'ids': user_ids }
+        return self._session.delete(f'{self._admin_api_base_url}/groups/{group_id}/users', json=req_data).json()
+
