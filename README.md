@@ -4,7 +4,7 @@
 ![PyPI](https://img.shields.io/pypi/v/crowdpy)
 
 A Python library for Atlassian Crowd REST API
-> Version 1.0.0 and 1.1.0 are for distribution tests and have bugs. Please use crowdpy >= 1.1.1
+> Version with 1.x.x ~ 1.2.x are for distribution tests and have bugs. Please use crowdpy >= 1.3.0
 
 ## Requirements
 - Python >= 3.9

@@ -5,7 +5,7 @@ with open('./README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='crowdpy',
-    version='1.2.3',
+    version='1.3.0',
 
     author='Daeyeol Ryu',
     author_email='yoobato@gmail.com',
