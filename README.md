@@ -52,4 +52,4 @@ python -m twine upload dist/*
 - [Daeyeol Ryu](https://yoobato.com)
 
 ## License
-- [Apache License 2.0](./LICENSE)
+- [Apache License 2.0](./LICENSE.md)
