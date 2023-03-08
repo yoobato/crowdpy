@@ -59,3 +59,20 @@ class Crowd:
         
         return results
 
+
+    def get_users_by_group(self, group_id: str) -> list[dict]:
+        results = list()
+        start_index = 0
+
+        while (True):
+            # Fetch all Active users in specific directory
+            response = self._session.post(f'{self._admin_api_base_url}/groups/{group_id}/users?limit=100&start={start_index}').json()
+            results.extend(list(response['values']))
+
+            if response['isLastPage'] == True:
+                break
+            else:
+                start_index = int(response['start']) + int(response['size'])
+        
+        return results
+
