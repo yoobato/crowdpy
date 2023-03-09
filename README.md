@@ -8,6 +8,8 @@ A Python library for Atlassian Crowd REST API
 
 ## Requirements
 - Python >= 3.9
+- Atlassian Crowd ([REST API docs](https://docs.atlassian.com/atlassian-crowd/4.0.2/REST))
+  - This library is tested in `Atlassian Crowd 4.0.2`
 
 ## Installation
 ```sh
@@ -47,7 +49,7 @@ python -m twine upload dist/*
 # package will be uploaded to PyPi registry
 # https://pypi.org/project/crowdpy
 ```
-- However, this project use GitHub Actions workflow to automatically publish the package to PyPI when a tag pushed.
+> However, this project use GitHub Actions workflow to automatically publish the package to PyPI when a tag pushed.
 
 ## To Do
 - [ ] Unittest
