@@ -47,6 +47,10 @@ python -m twine upload dist/*
 # package will be uploaded to PyPi registry
 # https://pypi.org/project/crowdpy
 ```
+- However, this project use GitHub Actions workflow to automatically publish the package to PyPI when a tag pushed.
+
+## To Do
+- [ ] Unittest
 
 ## Authors
 - [Daeyeol Ryu](https://yoobato.com)
